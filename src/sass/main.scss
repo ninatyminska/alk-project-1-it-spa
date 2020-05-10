@@ -1,0 +1,24 @@
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../node_modules/tiny-slider/src/tiny-slider.scss';
+
+@import 'utils/variables';
+@import 'utils/mixins';
+
+@import 'base/normalize';
+@import 'base/typography';
+@import 'base/base';
+
+@import 'components/loader';
+
+@import 'layout/homepage';
+@import 'layout/rooms';
+@import 'layout/treatments';
+@import 'layout/basket';
+@import 'layout/error';
+@import 'layout/login';
+@import 'layout/register';
+@import 'layout/account';
+
+@import 'components/header';
+@import 'components/footer';
+@import 'components/slider';

@@ -1,0 +1,19 @@
+.footer {
+    background-image: url('/img/footer-background.jpg');
+    background-size: cover;
+
+    &__content {
+        height: 100px;
+        color: $color-white;
+
+        a {
+            color: $color-white;
+        }
+
+        .fab {
+            margin-left: 5px;
+            vertical-align: text-bottom;
+            font-size: 1.2rem;
+        }
+    }
+}

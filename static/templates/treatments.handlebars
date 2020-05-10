@@ -1,0 +1,27 @@
+<div class="treatments">
+	<div class="treatments__header">
+		<div class="row h-100">
+			<div class="col-12 align-self-center">
+				<h3>Zabiegi</h3>
+			</div>
+		</div>
+	</div>
+	<div class="treatments__content d-flex justify-content-center flex-column">
+		<div class="row w-100 p-2 p-xl-5 justify-content-center">
+			{{#each data}}
+			<div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+				<div class="card">
+					<img class="card-img-top" src="{{img}}" alt="{{name}}">
+					<div class="card-body">
+						<h5 class="card-title">{{name}}</h5>
+						<p class="card-text">Obszar: {{area}} <strong>|</strong> Czas: {{time}} min.<br />
+							Cena: {{price}} zł</p>
+						<a class="btn btn-outline-secondary btn-sm" data-id="{{_id}}">Dodaj do rezerwacji</a>
+					</div>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</div>
+</div>

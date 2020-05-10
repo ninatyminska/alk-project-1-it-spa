@@ -1,0 +1,66 @@
+<div class="account">
+    <div class="account__header">
+        <div class="row h-100">
+            <div class="col-12 align-self-center">
+                <h3>Twoje konto</h3>
+            </div>
+        </div>
+    </div>
+    <div class="account__content d-flex justify-content-center flex-column">
+        <div class="row w-100 p-4 justify-content-center">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="accordion" id="accountAccordion">
+                    {{#each data}}
+                    <div id="{{_id}}" class="card">
+                        <div class="card-header" id="heading-{{_id}}">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                                    data-target="#collapse-{{_id}}" aria-expanded="true"
+                                    aria-controls="collapse-{{_id}}">
+                                    ID zamówienia: {{trim _id}}
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="collapse-{{_id}}" class="collapse" aria-labelledby="heading-{{_id}}"
+                            data-parent="#accountAccordion">
+                            <div class="card-body">
+                                {{#each order.items}}
+                                {{item.name}} {{#if dateArr}}<i class="far fa-calendar-alt"></i>
+                                {{formatDate dateArr 'DD/MM/YYYY'}}-{{/if}}{{#if dateDep}}{{formatDate dateDep 'DD/MM/YYYY'}}{{/if}}
+                                <br />
+                                {{/each}}
+                                <br />
+                                Łączna cena: {{order.totalPrice}} zł | <i class="fas fa-plane-slash" data-toggle="modal"
+                                    data-target="#order-cancel" data-order="{{_id}}">
+                                </i></li>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="order-cancel" tabindex="-1" role="dialog" aria-labelledby="order-cancel-title"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="order-cancel-title">Odwołanie rezerwacji</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Zamknij">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Czy na pewno chcesz odwołać rezerwację?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+                    <button type="button" class="btn btn-outline-secondary confirm-cancel"
+                        data-id="{{_id}}">Potwierdzam</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

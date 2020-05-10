@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="sources/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css"
+        />
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+        <script
+            src="https://kit.fontawesome.com/d008cee54d.js"
+            crossorigin="anonymous"
+        ></script>
+
+        <title>IT SPA</title>
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand navbar-brand-mobile" href="/"
+                    >&#127796; &nbsp; IT SPA</a
+                >
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </span>
+                </button>
+
+                <div
+                    class="collapse navbar-collapse"
+                    id="navbarSupportedContent"
+                >
+                    <ul class="navbar-nav ml-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pokoje">Pokoje</a>
+                        </li>
+                        <a class="navbar-brand" href="/"
+                            >&#127796; <br />IT SPA</a
+                        >
+                        <li class="nav-item">
+                            <a class="nav-link" href="/zabiegi">Zabiegi</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/konto" title="Konto">
+                                <i class="fas fa-user"></i
+                            ></a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                href="/wylogowanie"
+                                title="Wyloguj"
+                                ><i class="fas fa-sign-out-alt"></i
+                            ></a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                href="/logowanie"
+                                title="Zaloguj"
+                                ><i class="fas fa-sign-in-alt"></i
+                            ></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/koszyk" title="Koszyk"
+                                ><i class="fas fa-shopping-cart"></i
+                            ></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="main">
+                <div class="main__content">
+                    <div class="container-fluid p-0 text-center">
+                        <div class="main__content--loader align-items-center">
+                            <div class="main__content--loader-spinner"></div>
+                        </div>
+                        <div class="main__content--app"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="footer">
+                <div class="container-fluid p-0 text-center">
+                    <div class="footer__content">
+                        <div class="row h-100">
+                            <div class="col-12 align-self-center">
+                                <small
+                                    >&copy; Nina Tymińska
+                                    <a
+                                        class="footer__content--extlink"
+                                        target="_blank"
+                                        href="https://www.linkedin.com/in/nina-tyminska/"
+                                        title="LinkedIn"
+                                        ><i class="fab fa-linkedin"></i
+                                    ></a>
+                                    <a
+                                        class="footer__content--extlink"
+                                        target="_blank"
+                                        href="https://github.com/NinaNeira"
+                                        title="GitHub"
+                                        ><i class="fab fa-github-square"></i></a
+                                    ><br />
+                                    Akademia Leona Koźmińskiego - projekt
+                                    aplikacji SPA | Grafiki:
+                                    <a
+                                        class="footer__content--extlink"
+                                        target="_blank"
+                                        href="https://icons8.com"
+                                        rel="noopener noreferrer"
+                                        >Icons8</a
+                                    ></small
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="sources/jquery/dist/jquery.min.js"></script>
+        <script src="sources/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="sources/axios/dist/axios.min.js"></script>
+        <script src="sources/vanilla-router/dist/vanilla-router.min.js"></script>
+        <script src="sources/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+        <script src="js/bundle.js"></script>
+    </body>
+</html>

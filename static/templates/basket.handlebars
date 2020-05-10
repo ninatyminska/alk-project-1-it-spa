@@ -1,0 +1,34 @@
+<div class="basket">
+    <div class="basket__header">
+        <div class="row h-100">
+            <div class="col-12 align-self-center">
+                <h3>Koszyk</h3>
+            </div>
+        </div>
+    </div>
+    <div class="basket__content d-flex justify-content-center flex-column">
+        <div class="row w-100 pt-2 justify-content-center">
+            <img src="img/basket.png" class="basket__content--img" alt="Koszyk" />
+        </div>
+        <div class="row w-100 pt-2 pb-4 justify-content-center">
+            <ul class="list-group">
+                {{#each data.items}}
+                <li id="{{item._id}}" class="list-group-item">{{item.name}}
+                    {{#if dateArr}}<i class="far fa-calendar-alt"></i>
+                    {{formatDate dateArr 'DD/MM/YYYY'}}-{{/if}}{{#if dateDep}}{{formatDate dateDep 'DD/MM/YYYY'}}{{/if}}
+                    | Ilość:
+                    <span id="qty-{{item._id}}">{{qty}}</span> <i class="far fa-minus-square"
+                        data-id="{{item._id}}"></i>
+                    | Cena:
+                    {{price}} zł <i class="far fa-trash-alt" data-id="{{item._id}}"></i></li>
+                {{/each}}
+                <li class="list-group-item">
+                    <span id="basket-total-price">Łączna cena: {{data.totalPrice}} zł</span>
+                </li>
+            </ul>
+        </div>
+        <div class="row w-100 pb-5 justify-content-center">
+            <a class="btn btn-outline-secondary btn-sm">Zarezerwuj</a>
+        </div>
+    </div>
+</div>

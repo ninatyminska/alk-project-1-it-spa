@@ -1,0 +1,55 @@
+.home {
+    &__slider {
+        height: 650px;
+
+        @include media-breakpoint-down(lg) {
+            height: 460px;
+        }
+
+        @include media-breakpoint-down(sm) {
+            height: 360px;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            display: block;
+            background-image: url('/img/bg.jpg');
+            background-position-y: 35%;
+            background-size: cover;
+            width: 100%;
+            height: 655px;
+            opacity: 0.6;
+            -webkit-filter: blur(5px);
+            -moz-filter: blur(5px);
+            -o-filter: blur(5px);
+            -ms-filter: blur(5px);
+            filter: blur(3px);
+
+            @include media-breakpoint-down(lg) {
+                height: 455px;
+            }
+
+            @include media-breakpoint-down(sm) {
+                height: 355px;
+                background-position-x: center;
+            }
+        }
+
+        &--item {
+            top: 50%;
+            transform: translate(0, -50%);
+
+            @include media-breakpoint-down(sm) {
+                padding: 0 5px;
+            }
+
+            p {
+                padding: 20px;
+            }
+        }
+    }
+}

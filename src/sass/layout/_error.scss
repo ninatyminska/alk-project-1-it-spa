@@ -1,0 +1,25 @@
+.error {
+    &__content {
+        min-height: calc(100vh - 300px);
+        background-color: $color-concrete;
+
+        @include media-breakpoint-down(md) {
+            min-height: calc(100vh - 160px);
+        }
+
+        &--img {
+            display: block;
+            margin: 0 auto;
+            width: 40%;
+            padding: 30px;
+
+            @include media-breakpoint-down(lg) {
+                width: 60%;
+            }
+
+            @include media-breakpoint-down(xs) {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,101 @@
+.navbar {
+    height: 120px;
+    background-color: $color-golden-tainoi;
+    font-size: 1.2rem;
+    font-weight: $font-weight-medium;
+    text-transform: uppercase;
+
+    @include media-breakpoint-down(md) {
+        height: 60px;
+    }
+
+    a {
+        color: $color-outer-space;
+        text-decoration: none;
+
+        &[href*='/logowanie'],
+        &[href*='/wylogowanie'],
+        &[href*='/konto'] {
+            display: none;
+        }
+    }
+
+    &-brand {
+        margin: 0;
+        padding: 0 40px;
+        text-align: center;
+        font-size: 1.5rem;
+
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+
+        &-mobile {
+            display: none;
+
+            @include media-breakpoint-down(md) {
+                display: block;
+            }
+        }
+    }
+
+    &-nav {
+        &:first-of-type {
+            align-items: center;
+            margin-right: -154px;
+
+            @include media-breakpoint-down(md) {
+                margin-right: unset;
+                margin-bottom: 20px;
+            }
+        }
+
+        &:nth-of-type(2) {
+            width: 154px;
+
+            @include media-breakpoint-down(md) {
+                width: auto;
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .nav-link {
+                padding-left: 0.6rem;
+                padding-right: 0.6rem;
+
+                @include media-breakpoint-down(md) {
+                    padding-left: 0.7rem;
+                    padding-right: 0.7rem;
+                }
+            }
+        }
+
+        .nav-link {
+            &.active {
+                font-weight: $font-weight-bold;
+            }
+        }
+    }
+
+    &-toggler {
+        border: 2px solid $color-outer-space;
+
+        .fa-ellipsis-h {
+            vertical-align: sub;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            color: $color-outer-space;
+        }
+    }
+
+    &-collapse {
+        @include media-breakpoint-down(md) {
+            position: absolute;
+            width: 100%;
+            top: 60px;
+            left: 0;
+            background-color: $color-golden-tainoi;
+            z-index: 9999;
+        }
+    }
+}

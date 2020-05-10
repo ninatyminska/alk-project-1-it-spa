@@ -1,0 +1,88 @@
+body {
+    height: 100vh;
+    background-color: $color-concrete;
+    font-family: 'Roboto', sans-serif;
+    color: $color-outer-space;
+    overflow-y: auto;
+
+    @include scrollbars(3px, $color-outer-space, transparent);
+}
+
+.row {
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: $font-weight-bold;
+
+    @include media-breakpoint-down(xs) {
+        font-size: 2.8rem;
+    }
+}
+
+h2 {
+    margin: 0;
+    font-size: 2.3rem;
+    font-weight: 600;
+
+    @include media-breakpoint-down(xs) {
+        font-size: 2rem;
+    }
+}
+
+h3 {
+    margin: 0;
+}
+
+p {
+    font-size: 1.1rem;
+
+    @include media-breakpoint-down(xs) {
+        font-size: 1rem;
+    }
+}
+
+a,
+.btn-link {
+    color: $color-outer-space;
+    text-decoration: underline;
+
+    &:hover {
+        color: $color-outer-space;
+        text-decoration: none;
+    }
+}
+
+button,
+button:focus {
+    outline: none;
+}
+
+.main__content--app {
+    min-height: calc(100vh - 220px);
+}
+
+.datepicker {
+    &.dropdown-menu {
+        min-width: 15rem;
+    }
+
+    .table-condensed {
+        margin: 0 auto;
+    }
+
+    table {
+        tr {
+            td {
+                &.active {
+                    &.active {
+                        background-image: none;
+                        background-color: $color-outer-space;
+                    }
+                }
+            }
+        }
+    }
+}

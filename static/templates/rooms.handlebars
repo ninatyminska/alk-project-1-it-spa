@@ -1,0 +1,42 @@
+<div class="rooms">
+    <div class="rooms__header">
+        <div class="row h-100">
+            <div class="col-12 align-self-center">
+                <h3>Pokoje</h3>
+            </div>
+        </div>
+    </div>
+    <div class="rooms__content d-flex justify-content-center flex-column">
+        <div class="row w-100 pt-4 justify-content-center">
+            <div class="col-8 col-sm-4 col-xl-3">
+                <p>Okres pobytu:</p>
+                <div class="form-group">
+                    <input type="text" class="form-control clickable input-md rooms__date--arr"
+                        data-date-start-date="0d" placeholder="&#xf073; &#xf5af;">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control clickable input-md rooms__date--dep" id="DtChkOut"
+                        data-date-start-date="0d" data-date-end-date="+365d" placeholder="&#xf073; &#xf5b0;">
+                </div>
+            </div>
+        </div>
+        <div class="row w-100 p-2 p-xl-5 justify-content-center">
+            {{#each data}}
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                <div class="card">
+                    <img class="card-img-top" src="{{img}}" alt="{{name}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{name}}</h5>
+                        <p class="card-text">Łóżka: {{beds}} <strong>|</strong> Liczba
+                            gości: {{guests}}<br />
+                            Cena: {{price}} zł</p>
+                        <a class="btn btn-outline-secondary btn-sm" data-id="{{_id}}">Dodaj do rezerwacji</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+</div>
+</div>

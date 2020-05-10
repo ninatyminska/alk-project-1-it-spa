@@ -1,0 +1,25 @@
+.treatments {
+    &__header {
+        height: 5rem;
+        background-color: $color-outer-space;
+        color: $color-white;
+
+        @include media-breakpoint-down(xs) {
+            height: 4rem;
+        }
+    }
+
+    &__content {
+        min-height: calc(100vh - 300px);
+        background-color: $color-concrete;
+
+        .card {
+            width: 25rem;
+            margin: 1rem auto;
+
+            @include media-breakpoint-down(xl) {
+                width: auto;
+            }
+        }
+    }
+}

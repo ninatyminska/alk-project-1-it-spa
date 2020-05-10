@@ -1,0 +1,110 @@
+.home {
+    &__offer {
+        &--header {
+            height: 5rem;
+            background-color: $color-outer-space;
+            color: $color-white;
+
+            @include media-breakpoint-down(xs) {
+                height: 4rem;
+            }
+        }
+
+        &--content {
+            h4 {
+                padding: 15px 0;
+            }
+
+            &-img {
+                display: block;
+                margin: 0 auto;
+                max-width: 100%;
+                background-color: $color-golden-tainoi;
+                border-radius: 50%;
+            }
+
+            &-item {
+                &:last-of-type {
+                    @include media-breakpoint-down(xs) {
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__location {
+        &--header {
+            height: 5rem;
+            background-color: $color-regent-gray;
+            color: $color-white;
+
+            @include media-breakpoint-down(xs) {
+                height: 4rem;
+            }
+        }
+
+        &--content {
+            background-color: $color-tower-gray;
+
+            &-img {
+                display: block;
+                margin: 0 auto;
+                padding-bottom: 30px;
+                max-width: 450px;
+                width: 100%;
+            }
+        }
+    }
+
+    &__about {
+        &--header {
+            height: 5rem;
+            background-color: $color-outer-space;
+            color: $color-white;
+
+            @include media-breakpoint-down(xs) {
+                height: 4rem;
+            }
+        }
+
+        &--content {
+            background-color: $color-golden-tainoi;
+            color: $color-outer-space;
+
+            &-item {
+                border-right: 1px solid $color-outer-space;
+
+                @include media-breakpoint-down(xs) {
+                    border: none;
+                }
+
+                &:nth-of-type(2) {
+                    @include media-breakpoint-down(sm) {
+                        border: none;
+                    }
+                }
+
+                &:last-of-type {
+                    border: none;
+
+                    @include media-breakpoint-down(md) {
+                        margin-top: 40px;
+                    }
+
+                    @include media-breakpoint-down(xs) {
+                        margin-top: 0;
+                    }
+                }
+
+                p {
+                    padding: 20px;
+                }
+            }
+        }
+    }
+
+    .alert {
+        margin-bottom: 0;
+    }
+}
