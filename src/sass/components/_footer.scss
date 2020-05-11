@@ -6,6 +6,10 @@
         height: 100px;
         color: $color-white;
 
+        &--ico {
+            text-decoration: none;
+        }
+
         a {
             color: $color-white;
         }
