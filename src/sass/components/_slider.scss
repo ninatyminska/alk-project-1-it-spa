@@ -42,6 +42,7 @@
         &--item {
             top: 50%;
             transform: translate(0, -50%);
+            text-shadow: 3px 2px 5px rgba(150, 150, 150, 0.55);
 
             @include media-breakpoint-down(sm) {
                 padding: 0 5px;
@@ -49,6 +50,7 @@
 
             p {
                 padding: 20px;
+                line-height: 1.6;
             }
         }
     }

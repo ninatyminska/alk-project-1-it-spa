@@ -1,15 +1,38 @@
-# IT SPA
+# IT SPA - realizacja
+
+## Wykorzystane technologie
+
+-   Node.js
+-   Express.js
+-   MongoDB & mongoose
+-   Passport.js
+-   jQuery
+-   Bootstrap
+-   Sass
+-   axios
+
+## Funkcjonalności
+
+-   baza danych: pokoje, zabiegi, użytkownicy, zamówienia
+-   koszyk: dodawanie, usuwanie (pojedynczo, zbiorczo)
+-   wybór daty dla rezerwacji pokoju
+-   zamówienia: podsumowanie kosztów, składanie, anulacja
+-   użytkownicy: rejestracja (z walidacją), autentykacja
+-   sesja,
+-   obsługa błędów, strona 404
+
+# IT SPA - wytyczne
 
 Projekt polega na napisaniu aplikacji Single Page Application dla ośrodka SPA dedykowanego programistom.
 
-Aplikacja powinna umożliwiać: 
+Aplikacja powinna umożliwiać:
 
-- Przeglądanie dostępnych zabiegów
-- Dodawanie wybranych zabiegów do koszyka
-- Wybór daty przyjazdu i wyjazdu oraz pokoju  
-- Rejestrację użytkownika (opcjonalnie)
-- Logowanie użytkownika (opcjonalnie)
-- Podsumowanie składanego zamówienia
+-   Przeglądanie dostępnych zabiegów
+-   Dodawanie wybranych zabiegów do koszyka
+-   Wybór daty przyjazdu i wyjazdu oraz pokoju
+-   Rejestrację użytkownika (opcjonalnie)
+-   Logowanie użytkownika (opcjonalnie)
+-   Podsumowanie składanego zamówienia
 
 ## Booking
 
@@ -32,12 +55,12 @@ Logowanie polega na porównaniu podanych przez użytkownika danych (e-mail i has
 ## Pokoje
 
 Bazę przykładowych pokoi w ośrodku IT SPA znajdziesz w pliku `database.json`.
-Możesz dowolnie zmienić istniejące pokoje lub dodać swoje własne. 
+Możesz dowolnie zmienić istniejące pokoje lub dodać swoje własne.
 
-## Zabiegi 
+## Zabiegi
 
 Bazę przykładowych zabiegów ośrodka IT SPA znajdziesz w pliku `database.json`.
-Możesz dowolnie zmienić istniejące zabiegi lub dodać swoje własne. 
+Możesz dowolnie zmienić istniejące zabiegi lub dodać swoje własne.
 
 ## Koszyk
 
@@ -46,10 +69,10 @@ Koszyk musi przetrwać przeładowanie strony, dlatego spróbuj wykorzystać cias
 
 ## Technologie
 
-- HTML, Bootstrap
-- CSS, Sass, LESS
-- JavaScript, jQuery
-- Node, Express
+-   HTML, Bootstrap
+-   CSS, Sass, LESS
+-   JavaScript, jQuery
+-   Node, Express
 
 Postaraj się korzystać z ECMAScript 6.
 
@@ -63,9 +86,9 @@ Postaraj się oddać projekt do końca maja 2020.
 
 ## Przykłady
 
-Strony, którymi możesz się inspirować: 
+Strony, którymi możesz się inspirować:
 
-- afrodyta-spa.pl
-- bukowypark.pl
-- hotelczarnypotok.pl
-- hotelniemcza.pl
+-   afrodyta-spa.pl
+-   bukowypark.pl
+-   hotelczarnypotok.pl
+-   hotelniemcza.pl
