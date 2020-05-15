@@ -61,6 +61,10 @@ window.addEventListener('load', () => {
                 const href = target.attr('href');
                 const path = href.substr(href.lastIndexOf('/'));
                 router.navigateTo(path);
+
+                if (target.hasClass('nav-link')) {
+                    $('.navbar-collapse').removeClass('show');
+                }
             }
         });
     };
@@ -230,10 +234,10 @@ window.addEventListener('load', () => {
 
             if (data.length === 0) {
                 $('.account__content').append(`
-                <div class="row w-100 pb-4 justify-content-md-center">
+                <div class="row w-100 pb-4 justify-content-center">
                 <img src="img/no-orders.png" class="account__content--img" />
                 </div>
-                <div class="row w-100 justify-content-md-center">
+                <div class="row w-100 justify-content-center">
                 <p>Nie masz żadnych zamówień</p>
                 </div>`);
             }
@@ -265,10 +269,10 @@ window.addEventListener('load', () => {
                 );
 
                 $('.account__content').html('').append(`
-                    <div class="row w-100 pb-4 justify-content-md-center">
+                    <div class="row w-100 pb-4 justify-content-center">
                     <img src="img/user.svg" class="account__content--img" />
                     </div>
-                    <div class="row w-100 justify-content-md-center">
+                    <div class="row w-100 justify-content-center">
                     <a href="/logowanie">Przejdź do strony logowania</a>
                     </div>`);
 
@@ -316,10 +320,10 @@ window.addEventListener('load', () => {
                     </div>
                 </div>
                 <div class="basket__content d-flex justify-content-center flex-column">
-                    <div class="row w-100 pb-5 justify-content-md-center">
+                    <div class="row w-100 pb-5 justify-content-center">
                         <img src="img/empty-basket.png" class="basket__content--img" alt="Koszyk jest pusty" />
                     </div>
-                    <div class="row w-100 p-0 justify-content-md-center">    
+                    <div class="row w-100 p-0 justify-content-center">    
                         <p>Twój koszyk jest pusty.</p>
                     </div>
                 </div>
