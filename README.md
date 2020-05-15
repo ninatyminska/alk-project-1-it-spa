@@ -2,6 +2,8 @@
 
 http://ninatyminska.dev/alk-project-1-it-spa
 
+Raportowanie błędów: https://gitlab.com/NinaNeira/alk-project-1-it-spa/-/issues.
+
 ## Wykorzystane technologie
 
 -   Node.js

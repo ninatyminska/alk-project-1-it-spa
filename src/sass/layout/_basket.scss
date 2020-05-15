@@ -39,6 +39,10 @@
 
         &--img {
             width: 300px;
+
+            @include media-breakpoint-down(md) {
+                width: 200px;
+            }
         }
     }
 }

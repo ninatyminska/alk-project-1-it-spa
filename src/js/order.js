@@ -22,10 +22,10 @@ export const deleteOrder = async (target) => {
                 '<div class="alert alert-success" role="alert">Rezerwacja anulowana.</div>'
             );
             $('.account__content').html(`
-                    <div class="row w-100 pb-4 justify-content-md-center">
+                    <div class="row w-100 pb-4 justify-content-center">
                     <img src="img/no-orders.png" class="account__content--img" />
                     </div>
-                    <div class="row w-100 justify-content-md-center">
+                    <div class="row w-100 justify-content-center">
                     <p>Nie masz żadnych zamówień</p>
                     </div>`);
         }

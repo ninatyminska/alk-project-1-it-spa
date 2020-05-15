@@ -103,10 +103,10 @@ export const removeItem = async (target) => {
 
         if (data.totalQty === 0) {
             $('.basket__content').html(
-                `<div class="row w-100 pb-5 justify-content-md-center">
+                `<div class="row w-100 pb-5 justify-content-center">
                 <img src="img/empty-basket.png" class="basket__content--img" alt="Koszyk jest pusty" />
             </div>
-            <div class="row w-100 p-0 justify-content-md-center">    
+            <div class="row w-100 p-0 justify-content-center">    
                 <p>Twój koszyk jest pusty.</p>
             </div>`
             );
@@ -140,10 +140,10 @@ export const deleteItem = async (target) => {
 
         if (data.totalQty === 0) {
             $('.basket__content').html(
-                `<div class="row w-100 pb-5 justify-content-md-center">
+                `<div class="row w-100 pb-5 justify-content-center">
                 <img src="img/empty-basket.png" class="basket__content--img" alt="Koszyk jest pusty" />
             </div>
-            <div class="row w-100 p-0 justify-content-md-center">    
+            <div class="row w-100 p-0 justify-content-center">    
                 <p>Twój koszyk jest pusty.</p>
             </div>`
             );
@@ -185,10 +185,10 @@ export const checkout = async () => {
             );
             $('.basket__content')
                 .html(`<div class="basket__content d-flex justify-content-center flex-column">
-            <div class="row w-100 pb-5 justify-content-md-center">
+            <div class="row w-100 pb-5 justify-content-center">
                 <img src="img/empty-basket.png" class="basket__content--img" alt="Koszyk jest pusty" />
             </div>
-            <div class="row w-100 p-0 justify-content-md-center">    
+            <div class="row w-100 p-0 justify-content-center">    
                 <p>Twój koszyk jest pusty.</p>
             </div>
         </div>`);
