@@ -11,6 +11,7 @@ Raportowanie błędów: https://gitlab.com/NinaNeira/alk-project-1-it-spa/-/issu
 -   MongoDB & mongoose
 -   Passport.js
 -   jQuery
+-   Handlebars
 -   Bootstrap
 -   Sass
 -   axios
