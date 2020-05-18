@@ -119,12 +119,16 @@ window.addEventListener('load', () => {
                 autoclose: true,
             });
 
-            $('.rooms__date--dep').datepicker({
-                orientation: 'bottom right',
-                format: 'yyyy/mm/dd',
-                todayHighlight: true,
-                autoclose: true,
-            });
+            $('.rooms__date--dep')
+                .datepicker({
+                    orientation: 'bottom right',
+                    format: 'yyyy/mm/dd',
+                    todayHighlight: true,
+                    autoclose: true,
+                })
+                .on('changeDate', (e) => {
+                    $('.rooms__date--arr').datepicker('setEndDate', e.date);
+                });
         } catch (err) {
             $('.alert').remove();
             $('.rooms__header').append(errorMsg);
