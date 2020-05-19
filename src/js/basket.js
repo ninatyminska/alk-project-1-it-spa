@@ -1,4 +1,5 @@
 import { errorMsg, database } from './helpers';
+import moment from 'moment';
 
 export const addRoomToBasket = async (target) => {
     try {
@@ -13,6 +14,26 @@ export const addRoomToBasket = async (target) => {
             );
             $('.rooms__date--arr').addClass('is-invalid');
             $('.rooms__date--dep').addClass('is-invalid');
+        } else if (
+            !moment(dateArr, 'YYYY/MM/DD').isValid() ||
+            !moment(dateDep, 'YYYY/MM/DD').isValid()
+        ) {
+            $('.alert').remove();
+            $('.rooms__content').prepend(
+                '<div class="alert alert-danger" role="alert">Daty muszą mieć format "YYYY/MM/DD".</div>'
+            );
+            $('.rooms__date--arr').addClass('is-invalid');
+            $('.rooms__date--dep').addClass('is-invalid');
+        } else if (
+            moment(dateArr.replace(/\//g, '')).isAfter(
+                moment(dateDep.replace(/\//g, ''))
+            )
+        ) {
+            $('.alert').remove();
+            $('.rooms__content').prepend(
+                '<div class="alert alert-danger" role="alert">Data przyjazdu nie może być późniejsza, niż data wyjazdu.</div>'
+            );
+            $('.rooms__date--arr').addClass('is-invalid');
         } else {
             $('.rooms__date--arr').removeClass('is-invalid');
             $('.rooms__date--dep').removeClass('is-invalid');

@@ -112,14 +112,7 @@ window.addEventListener('load', () => {
                 addRoomToBasket(target);
             });
 
-            $('.rooms__date--arr').datepicker({
-                orientation: 'bottom right',
-                format: 'yyyy/mm/dd',
-                todayHighlight: true,
-                autoclose: true,
-            });
-
-            $('.rooms__date--dep')
+            $('.rooms__date--arr')
                 .datepicker({
                     orientation: 'bottom right',
                     format: 'yyyy/mm/dd',
@@ -127,7 +120,22 @@ window.addEventListener('load', () => {
                     autoclose: true,
                 })
                 .on('changeDate', (e) => {
-                    $('.rooms__date--arr').datepicker('setEndDate', e.date);
+                    let date = new Date(e.date);
+                    date.setDate(date.getDate() + 1);
+                    $('.rooms__date--dep').datepicker('setStartDate', date);
+                });
+
+            $('.rooms__date--dep')
+                .datepicker({
+                    orientation: 'bottom right',
+                    format: 'yyyy/mm/dd',
+                    todayHighlight: false,
+                    autoclose: true,
+                })
+                .on('changeDate', (e) => {
+                    let date = new Date(e.date);
+                    date.setDate(date.getDate() - 1);
+                    $('.rooms__date--arr').datepicker('setEndDate', date);
                 });
         } catch (err) {
             $('.alert').remove();
