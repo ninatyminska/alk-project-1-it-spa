@@ -1,14 +1,8 @@
 import Handlebars from 'handlebars';
-import moment from 'moment';
 
 Handlebars.registerHelper('trim', function (string) {
     const newString = string.substring(0, 7);
     return new Handlebars.SafeString(newString);
-});
-
-Handlebars.registerHelper('formatDate', function (date, format) {
-    const momentDate = moment(date);
-    return momentDate.format(format);
 });
 
 Handlebars.getTemplate = function (name) {

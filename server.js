@@ -66,21 +66,10 @@ app.get('/database/rooms', async (req, res) => {
     }
 });
 
-app.get('/database/treatments', async (req, res) => {
-    try {
-        const allTreatments = await Treatment.find({}).exec();
-        res.setHeader('Content-Type', 'application/json');
-        res.send(allTreatments);
-    } catch (err) {
-        res.send('error');
-    }
-});
-
-app.get('/database/rooms/:id/:arr/:dep', async (req, res) => {
+app.post('/database/rooms/:id', async (req, res) => {
     try {
         const roomId = req.params.id;
-        const dateArr = req.params.arr;
-        const dateDep = req.params.dep;
+        const { dateArr, dateDep } = req.body;
 
         const basket = new Basket(req.session.basket ? req.session.basket : {});
 
@@ -103,7 +92,17 @@ app.get('/database/rooms/:id/:arr/:dep', async (req, res) => {
     }
 });
 
-app.get('/database/treatments/:id', async (req, res) => {
+app.get('/database/treatments', async (req, res) => {
+    try {
+        const allTreatments = await Treatment.find({}).exec();
+        res.setHeader('Content-Type', 'application/json');
+        res.send(allTreatments);
+    } catch (err) {
+        res.send('error');
+    }
+});
+
+app.post('/database/treatments/:id', async (req, res) => {
     try {
         const treatmentId = req.params.id;
         const basket = new Basket(req.session.basket ? req.session.basket : {});
@@ -143,7 +142,7 @@ app.get('/database/basket', async (req, res) => {
     }
 });
 
-app.get('/database/basket/remove/:id', async (req, res) => {
+app.put('/database/basket/:id', async (req, res) => {
     try {
         const itemId = req.params.id;
         const basket = new Basket(req.session.basket ? req.session.basket : {});
@@ -157,7 +156,7 @@ app.get('/database/basket/remove/:id', async (req, res) => {
     }
 });
 
-app.get('/database/basket/delete/:id', async (req, res) => {
+app.delete('/database/basket/:id', async (req, res) => {
     try {
         const itemId = req.params.id;
         const basket = new Basket(req.session.basket ? req.session.basket : {});
@@ -171,7 +170,7 @@ app.get('/database/basket/delete/:id', async (req, res) => {
     }
 });
 
-app.get('/database/checkout', async (req, res) => {
+app.post('/database/checkout', async (req, res) => {
     try {
         res.setHeader('Content-Type', 'application/json');
         if (!req.session.basket || req.session.basket.totalQty === 0) {
@@ -199,7 +198,7 @@ app.get('/database/checkout', async (req, res) => {
     }
 });
 
-app.get('/database/order/delete/:id', async (req, res) => {
+app.delete('/database/order/:id', async (req, res) => {
     try {
         res.setHeader('Content-Type', 'application/json');
 

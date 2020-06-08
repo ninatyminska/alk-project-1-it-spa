@@ -3,7 +3,7 @@ import { errorMsg, database } from './helpers';
 export const deleteOrder = async (target) => {
     try {
         const targetId = $(target).attr('data-id');
-        const response = await database.get(`/order/delete/${targetId}`);
+        const response = await database.delete(`/order/${targetId}`);
         const data = response.data;
 
         if (data === 'success') {
