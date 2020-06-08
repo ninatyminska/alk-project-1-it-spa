@@ -1,12 +1,12 @@
-const path = require("path");
-const FileManagerPlugin = require("filemanager-webpack-plugin");
+const path = require('path');
+const FileManagerPlugin = require('filemanager-webpack-plugin');
 
 module.exports = {
-    entry: "./src/js/app.js",
+    entry: './src/js/app.js',
     output: {
-        path: path.resolve(__dirname, "static"),
-        filename: "bundle.js",
-        publicPath: "/static",
+        path: path.resolve(__dirname, 'static'),
+        filename: 'bundle.js',
+        publicPath: '/static',
     },
     module: {
         rules: [
@@ -14,11 +14,11 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: "babel-loader",
+                    loader: 'babel-loader',
                     options: {
                         presets: [
                             [
-                                "@babel/preset-env",
+                                '@babel/preset-env',
                                 {
                                     targets: {
                                         esmodules: true,
@@ -33,31 +33,35 @@ module.exports = {
                 test: /\.scss$/,
                 use: [
                     {
-                        loader: "file-loader",
+                        loader: 'file-loader',
                         options: {
-                            name: "[name].css",
+                            name: '[name].css',
                         },
                     },
                     {
-                        loader: "sass-loader", // compiles Sass to CSS
+                        loader: 'sass-loader', // compiles Sass to CSS
                     },
                 ],
             },
         ],
     },
-
+    performance: {
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000,
+    },
+    mode: 'production',
     plugins: [
         new FileManagerPlugin({
             onEnd: [
                 {
                     move: [
                         {
-                            source: "./static/bundle.js",
-                            destination: "./static/js/bundle.js",
+                            source: './static/bundle.js',
+                            destination: './static/js/bundle.js',
                         },
                         {
-                            source: "./static/main.css",
-                            destination: "./static/css/main.css",
+                            source: './static/main.css',
+                            destination: './static/css/main.css',
                         },
                     ],
                 },

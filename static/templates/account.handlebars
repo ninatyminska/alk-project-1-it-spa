@@ -27,7 +27,7 @@
                             <div class="card-body">
                                 {{#each order.items}}
                                 {{item.name}} {{#if dateArr}}<i class="far fa-calendar-alt"></i>
-                                {{formatDate dateArr 'DD/MM/YYYY'}}-{{/if}}{{#if dateDep}}{{formatDate dateDep 'DD/MM/YYYY'}}{{/if}}
+                                {{dateArr}}-{{/if}}{{#if dateDep}}{{dateDep}}{{/if}}
                                 <br />
                                 {{/each}}
                                 <br />

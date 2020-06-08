@@ -3,7 +3,7 @@ import moment from 'moment';
 
 export const addRoomToBasket = async (target) => {
     try {
-        const targetId = $(target).attr('data-id');
+        const roomId = $(target).attr('data-id');
         const dateArr = $('.rooms__date--arr').val();
         const dateDep = $('.rooms__date--dep').val();
 
@@ -15,19 +15,17 @@ export const addRoomToBasket = async (target) => {
             $('.rooms__date--arr').addClass('is-invalid');
             $('.rooms__date--dep').addClass('is-invalid');
         } else if (
-            !moment(dateArr, 'YYYY/MM/DD').isValid() ||
-            !moment(dateDep, 'YYYY/MM/DD').isValid()
+            !moment(dateArr, 'DD/MM/YYYY').isValid() ||
+            !moment(dateDep, 'DD/MM/YYYY').isValid()
         ) {
             $('.alert').remove();
             $('.rooms__content').prepend(
-                '<div class="alert alert-danger" role="alert">Daty muszą mieć format "YYYY/MM/DD".</div>'
+                '<div class="alert alert-danger" role="alert">Daty muszą mieć format "DD/MM/YYYY".</div>'
             );
             $('.rooms__date--arr').addClass('is-invalid');
             $('.rooms__date--dep').addClass('is-invalid');
         } else if (
-            moment(dateArr.replace(/\//g, '')).isAfter(
-                moment(dateDep.replace(/\//g, ''))
-            )
+            moment(dateArr, 'DD-MM-YYYY').isAfter(moment(dateDep, 'DD-MM-YYYY'))
         ) {
             $('.alert').remove();
             $('.rooms__content').prepend(
@@ -38,12 +36,10 @@ export const addRoomToBasket = async (target) => {
             $('.rooms__date--arr').removeClass('is-invalid');
             $('.rooms__date--dep').removeClass('is-invalid');
 
-            const response = await database.get(
-                `/rooms/${targetId}/${dateArr.replace(
-                    /\//g,
-                    ''
-                )}/${dateDep.replace(/\//g, '')}`
-            );
+            const response = await database.post(`/rooms/${roomId}`, {
+                dateArr,
+                dateDep,
+            });
             const data = response.data;
 
             if (data === 'added') {
@@ -51,8 +47,8 @@ export const addRoomToBasket = async (target) => {
                 $('.rooms__content').prepend(
                     '<div class="alert alert-success" role="alert">Pokój dodany do koszyka.</div>'
                 );
-                $('.rooms__date--arr').val('');
-                $('.rooms__date--dep').val('');
+                $('.rooms__date--arr').val('').datepicker('update', '');
+                $('.rooms__date--dep').val('').datepicker('update', '');
             }
 
             if (data === 'exists') {
@@ -75,8 +71,8 @@ export const addRoomToBasket = async (target) => {
 
 export const addTreatmentToBasket = async (target) => {
     try {
-        const targetId = $(target).attr('data-id');
-        const response = await database.get(`/treatments/${targetId}`);
+        const treatmentId = $(target).attr('data-id');
+        const response = await database.post(`/treatments/${treatmentId}`);
         const data = response.data;
 
         if (data === 'added') {
@@ -106,7 +102,7 @@ export const addTreatmentToBasket = async (target) => {
 export const removeItem = async (target) => {
     try {
         const targetId = $(target).attr('data-id');
-        const response = await database.get(`/basket/remove/${targetId}`);
+        const response = await database.put(`/basket/${targetId}`);
         const data = response.data;
 
         $('.alert').remove();
@@ -146,7 +142,7 @@ export const removeItem = async (target) => {
 export const deleteItem = async (target) => {
     try {
         const targetId = $(target).attr('data-id');
-        const response = await database.get(`/basket/delete/${targetId}`);
+        const response = await database.delete(`/basket/${targetId}`);
         const data = response.data;
 
         $('.alert').remove();
@@ -182,7 +178,7 @@ export const deleteItem = async (target) => {
 
 export const checkout = async () => {
     try {
-        const response = await database.get('/checkout');
+        const response = await database.post('/checkout');
         const data = response.data;
 
         if (data === 'empty') {

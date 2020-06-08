@@ -115,7 +115,7 @@ window.addEventListener('load', () => {
             $('.rooms__date--arr')
                 .datepicker({
                     orientation: 'bottom right',
-                    format: 'yyyy/mm/dd',
+                    format: 'dd/mm/yyyy',
                     todayHighlight: true,
                     autoclose: true,
                 })
@@ -123,12 +123,17 @@ window.addEventListener('load', () => {
                     let date = new Date(e.date);
                     date.setDate(date.getDate() + 1);
                     $('.rooms__date--dep').datepicker('setStartDate', date);
+                })
+                .on('clearDate', () => {
+                    $('.rooms__date--arr')
+                        .datepicker('setStartDate', '0d')
+                        .datepicker('setEndDate', false);
                 });
 
             $('.rooms__date--dep')
                 .datepicker({
                     orientation: 'bottom right',
-                    format: 'yyyy/mm/dd',
+                    format: 'dd/mm/yyyy',
                     todayHighlight: false,
                     autoclose: true,
                 })
@@ -136,6 +141,11 @@ window.addEventListener('load', () => {
                     let date = new Date(e.date);
                     date.setDate(date.getDate() - 1);
                     $('.rooms__date--arr').datepicker('setEndDate', date);
+                })
+                .on('clearDate', () => {
+                    $('.rooms__date--dep')
+                        .datepicker('setStartDate', '0d')
+                        .datepicker('setEndDate', '+365d');
                 });
         } catch (err) {
             $('.alert').remove();

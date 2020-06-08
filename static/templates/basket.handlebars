@@ -15,7 +15,7 @@
                 {{#each data.items}}
                 <li id="{{item._id}}" class="list-group-item">{{item.name}}
                     {{#if dateArr}}<i class="far fa-calendar-alt"></i>
-                    {{formatDate dateArr 'DD/MM/YYYY'}}-{{/if}}{{#if dateDep}}{{formatDate dateDep 'DD/MM/YYYY'}}{{/if}}
+                    {{dateArr}}-{{/if}}{{#if dateDep}}{{dateDep}}{{/if}}
                     | Ilość:
                     <span id="qty-{{item._id}}">{{qty}}</span> <i class="far fa-minus-square"
                         data-id="{{item._id}}"></i>
