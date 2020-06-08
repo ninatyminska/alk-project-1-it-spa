@@ -15,6 +15,7 @@ Raportowanie błędów: https://gitlab.com/NinaNeira/alk-project-1-it-spa/-/issu
 -   Bootstrap
 -   Sass
 -   axios
+-   webpack
 
 ## Funkcjonalności
 
