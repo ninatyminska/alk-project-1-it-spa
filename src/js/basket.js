@@ -112,10 +112,15 @@ export const removeItem = async (target) => {
 
         if (!(targetId in data.items)) {
             $(`#${targetId}`).fadeOut();
-            $('#basket-total-price').text(data.totalPrice);
+            $('.basket__content--total-price').text(data.totalPrice);
         } else {
-            $(`#qty-${targetId}`).text(data.items[targetId].qty);
-            $('#basket-total-price').text(data.totalPrice);
+            $(`.basket__content--qty-${targetId}`).text(
+                data.items[targetId].qty
+            );
+            $(`.basket__content--item-price-${targetId}`).text(
+                data.items[targetId].price
+            );
+            $('.basket__content--total-price').text(data.totalPrice);
         }
 
         if (data.totalQty === 0) {
@@ -152,7 +157,7 @@ export const deleteItem = async (target) => {
 
         if (!(targetId in data.items)) {
             $(`#${targetId}`).fadeOut();
-            $('#basket-total-price').text(data.totalPrice);
+            $('.basket__content--total-price').text(data.totalPrice);
         }
 
         if (data.totalQty === 0) {

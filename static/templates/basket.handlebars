@@ -17,13 +17,14 @@
                     {{#if dateArr}}<i class="far fa-calendar-alt"></i>
                     {{dateArr}}-{{/if}}{{#if dateDep}}{{dateDep}}{{/if}}
                     | Ilość:
-                    <span id="qty-{{item._id}}">{{qty}}</span> <i class="far fa-minus-square"
+                    <span class="basket__content--qty-{{item._id}}">{{qty}}</span> <i class="far fa-minus-square"
                         data-id="{{item._id}}"></i>
                     | Cena:
-                    {{price}} zł <i class="far fa-trash-alt" data-id="{{item._id}}"></i></li>
+                    <span class="basket__content--item-price-{{item._id}}">{{price}}</span> zł <i
+                        class="far fa-trash-alt" data-id="{{item._id}}"></i></li>
                 {{/each}}
                 <li class="list-group-item">
-                    <span id="basket-total-price">Łączna cena: {{data.totalPrice}} zł</span>
+                    Łączna cena: <span class="basket__content--total-price">{{data.totalPrice}}</span> zł
                 </li>
             </ul>
         </div>
