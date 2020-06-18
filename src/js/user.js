@@ -52,10 +52,12 @@ const userRegisterHandler = async () => {
         if (data === 'success') {
             router.navigateTo('/');
 
-            $('.alert').remove();
-            $('.home').prepend(
-                '<div class="alert alert-success" role="alert">Rejestracja pomyślna!</div>'
-            );
+            setTimeout(function() {
+                $('.alert').remove();
+                $('.home').prepend(
+                    '<div class="alert alert-success" role="alert">Rejestracja pomyślna!</div>'
+                );
+            }, 100);
         }
 
         if (data === 'error') {
@@ -108,10 +110,12 @@ const userLoginHandler = async () => {
         if (data === 'success') {
             router.navigateTo('/');
 
-            $('.alert').remove();
-            $('.home').prepend(
-                '<div class="alert alert-success" role="alert">Zalogowano.</div>'
-            );
+            setTimeout(function() {
+                    $('.alert').remove();
+                    $('.home').prepend(
+                        '<div class="alert alert-success" role="alert">Zalogowano.</div>'
+                    );
+                }, 100);
         }
 
         if (data === 'error') {
