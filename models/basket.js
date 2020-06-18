@@ -4,7 +4,7 @@ module.exports = function Basket(prevBasket) {
     this.totalPrice = prevBasket.totalPrice || 0;
 
     this.addItem = function (item, id, dateArr, dateDep) {
-        var storedItem = this.items[id];
+        let storedItem = this.items[id];
         if (!storedItem) {
             storedItem = this.items[id] = {
                 item: item,

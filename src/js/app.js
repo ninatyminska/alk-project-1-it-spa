@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
 
     router.add('/', async () => {
         try {
-            isUserAuthenticated();
+            await isUserAuthenticated();
 
             const html = homeTemplate();
             el.html(html);
@@ -61,7 +61,7 @@ window.addEventListener('load', () => {
 
     router.add('/pokoje', async () => {
         try {
-            isUserAuthenticated();
+            await isUserAuthenticated();
 
             const response = await database.get('/rooms');
             const data = response.data;
@@ -120,7 +120,7 @@ window.addEventListener('load', () => {
 
     router.add('/zabiegi', async () => {
         try {
-            isUserAuthenticated();
+            await isUserAuthenticated();
 
             const response = await database.get('/treatments');
             const data = response.data;
@@ -143,7 +143,7 @@ window.addEventListener('load', () => {
 
     router.add('/rejestracja', async () => {
         try {
-            isUserAuthenticated();
+            await isUserAuthenticated();
 
             const html = registerTemplate();
             el.html(html);
@@ -159,7 +159,7 @@ window.addEventListener('load', () => {
 
     router.add('/logowanie', async () => {
         try {
-            isUserAuthenticated();
+            await isUserAuthenticated();
 
             const html = loginTemplate();
             el.html(html);
@@ -177,7 +177,7 @@ window.addEventListener('load', () => {
 
     router.add('/wylogowanie', async () => {
         try {
-            isUserAuthenticated();
+            await isUserAuthenticated();
 
             const response = await api.get('/user/logout');
             const data = response.data;
@@ -185,29 +185,31 @@ window.addEventListener('load', () => {
             router.navigateTo('/');
 
             if (data === 'logout') {
-                $('.alert').remove();
-                $('.home').prepend(
-                    '<div class="alert alert-success" role="alert">Wylogowano.</div>'
-                );
+                setTimeout(function() {
+                    $('.alert').remove();
+                    $('.home').prepend(
+                        '<div class="alert alert-success" role="alert">Wylogowano.</div>'
+                    );
+                }, 100);
             } else {
-                $('.alert').remove();
-                $('.home').prepend(
-                    '<div class="alert alert-danger" role="alert">Wystąpił błąd. Wiesz, jak to jest... Spróbuj ponownie.</div>'
-                );
+                setTimeout(function() {
+                    $('.alert').remove();
+                    $('.home').prepend(errorMsg);
+                }, 100);
             }
         } catch (err) {
             router.navigateTo('/');
 
-            $('.alert').remove();
-            $('.home').prepend(
-                '<div class="alert alert-danger" role="alert">Wystąpił błąd. Wiesz, jak to jest... Spróbuj ponownie.</div>'
-            );
+            setTimeout(function() {
+                $('.alert').remove();
+                $('.home').prepend(errorMsg);
+            }, 100);
         }
     });
 
     router.add('/konto', async () => {
         try {
-            isUserAuthenticated();
+            await isUserAuthenticated();
 
             const response = await api.get('/user/account');
             const data = response.data;
@@ -241,7 +243,7 @@ window.addEventListener('load', () => {
                     e.preventDefault();
 
                     const target = $(e.currentTarget);
-                    deleteOrder(target);
+                    await deleteOrder(target);
                 } catch (err) {
                     $('.alert').remove();
                     $('.account__header').append(errorMsg);
@@ -271,7 +273,7 @@ window.addEventListener('load', () => {
 
     router.add('/koszyk', async () => {
         try {
-            isUserAuthenticated();
+            await isUserAuthenticated();
 
             const response = await database.get('/basket');
             const data = response.data;
