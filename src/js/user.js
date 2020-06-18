@@ -1,3 +1,4 @@
+import { router } from './router';
 import { errorMsg, api } from './helpers';
 
 export const isUserAuthenticated = async () => {
@@ -49,11 +50,12 @@ const userRegisterHandler = async () => {
         }
 
         if (data === 'success') {
+            router.navigateTo('/');
+
             $('.alert').remove();
-            $('.register__header').append(
+            $('.home').prepend(
                 '<div class="alert alert-success" role="alert">Rejestracja pomyślna!</div>'
             );
-            $('.register__content--form').trigger('reset');
         }
 
         if (data === 'error') {
@@ -104,13 +106,12 @@ const userLoginHandler = async () => {
         }
 
         if (data === 'success') {
-            isUserAuthenticated();
+            router.navigateTo('/');
 
             $('.alert').remove();
-            $('.login__header').append(
+            $('.home').prepend(
                 '<div class="alert alert-success" role="alert">Zalogowano.</div>'
             );
-            $('.login__content--form').trigger('reset');
         }
 
         if (data === 'error') {

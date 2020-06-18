@@ -1,9 +1,17 @@
-import Router from 'vanilla-router';
-import Handlebars from 'handlebars';
+import { router } from './router';
 import { tns } from 'tiny-slider/src/tiny-slider';
 
 import '../sass/main.scss';
-import './hdbHelpers';
+
+import {
+    homeTemplate,
+    roomsTemplate,
+    treatmentsTemplate,
+    registerTemplate,
+    loginTemplate,
+    accountTemplate,
+    basketTemplate,
+} from './hdbTemplates';
 
 import {
     isUserAuthenticated,
@@ -21,53 +29,10 @@ import {
 
 import { deleteOrder } from './order';
 
-import { database, api, errorMsg } from './helpers';
+import { navigateToPath, database, api, errorMsg } from './helpers';
 
 window.addEventListener('load', () => {
     const el = $('.main__content--app');
-
-    const errorTemplate = Handlebars.getTemplate('error');
-    const homeTemplate = Handlebars.getTemplate('home');
-    const roomsTemplate = Handlebars.getTemplate('rooms');
-    const treatmentsTemplate = Handlebars.getTemplate('treatments');
-    const registerTemplate = Handlebars.getTemplate('register');
-    const loginTemplate = Handlebars.getTemplate('login');
-    const accountTemplate = Handlebars.getTemplate('account');
-    const basketTemplate = Handlebars.getTemplate('basket');
-
-    const router = new Router({
-        mode: 'history',
-        page404: () => {
-            isUserAuthenticated();
-
-            const html = errorTemplate();
-            el.html(html);
-
-            $('.main__content--loader').fadeOut();
-        },
-    });
-
-    const navigateToPath = () => {
-        $('a').on('click', (event) => {
-            const target = $(event.currentTarget);
-
-            const checkLinkClass = target.hasClass('footer__content--extlink');
-
-            if (!checkLinkClass) {
-                event.preventDefault();
-
-                $('.main__content--loader').css('display', 'flex');
-
-                const href = target.attr('href');
-                const path = href.substr(href.lastIndexOf('/'));
-                router.navigateTo(path);
-
-                if (target.hasClass('nav-link')) {
-                    $('.navbar-collapse').removeClass('show');
-                }
-            }
-        });
-    };
 
     router.add('/', async () => {
         try {
@@ -220,8 +185,6 @@ window.addEventListener('load', () => {
             router.navigateTo('/');
 
             if (data === 'logout') {
-                isUserAuthenticated();
-
                 $('.alert').remove();
                 $('.home').prepend(
                     '<div class="alert alert-success" role="alert">Wylogowano.</div>'
