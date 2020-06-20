@@ -54,6 +54,10 @@ module.exports = {
         new FileManagerPlugin({
             onEnd: [
                 {
+                    mkdir: [
+                        './static/js/',
+                        './static/css/'
+                    ],
                     move: [
                         {
                             source: './static/bundle.js',
