@@ -1,14 +1,19 @@
 import Router from 'vanilla-router';
 import { errorTemplate } from './hdbTemplates';
+import { isUserAuthenticated } from './user';
 
-export const router = new Router({
-    mode: 'history',
-    page404: async () => {
-        await isUserAuthenticated();
+window.addEventListener('load', () => {
+    const el = $('.main__content--app');
 
-        const html = errorTemplate();
-        el.html(html);
+    export const router = new Router({
+        mode: 'history',
+        page404: async () => {
+            await isUserAuthenticated();
 
-        $('.main__content--loader').fadeOut();
-    },
+            const html = errorTemplate();
+            el.html(html);
+
+            $('.main__content--loader').fadeOut();
+        },
+    });
 });
