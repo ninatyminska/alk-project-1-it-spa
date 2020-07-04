@@ -24,6 +24,7 @@ Raportowanie błędów: https://gitlab.com/NinaNeira/alk-project-1-it-spa/-/issu
 -   wybór daty dla rezerwacji pokoju
 -   zamówienia: podsumowanie kosztów, składanie, anulacja
 -   użytkownicy: rejestracja (z walidacją), autentykacja
+-   konto użytkownika (złożone zamówienia, anulacja)
 -   sesja,
 -   obsługa błędów, strona 404
 
