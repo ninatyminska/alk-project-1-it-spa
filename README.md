@@ -1,6 +1,6 @@
 # IT SPA - realizacja
 
-http://ninatyminska.dev/alk-project-1-it-spa
+https://alk-projekt-1.ninatyminska.dev
 
 Raportowanie błędów: https://gitlab.com/NinaNeira/alk-project-1-it-spa/-/issues.
 
